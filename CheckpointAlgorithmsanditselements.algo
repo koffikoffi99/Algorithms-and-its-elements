@@ -1,3 +1,5 @@
+ALGORITHM phrase
+
 VAR
    nbv, nbw, nbc := INTEGER;
    sentc := STRING;
@@ -35,4 +37,11 @@ BEGIN
    write("Le nombre de caractères est ", LENGTH(sentc));
    write("Le nombre de mots est ", nbw);
    write("Le nombre de voyelles est ", nbv);
+END
+
+ALGORITHM algorithm_name
+VAR
+    set_declarations
+BEGIN
+    set_instructions
 END
