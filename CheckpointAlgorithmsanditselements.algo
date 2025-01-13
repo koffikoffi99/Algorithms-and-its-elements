@@ -1,0 +1,38 @@
+VAR
+   nbv, nbw, nbc := INTEGER;
+   sentc := STRING;
+
+BEGIN
+   nbc := 0;
+   nbw := 1;
+   nbv := 0;
+
+   write("Écrire la phrase : ");
+   read(sentc);
+
+   // Convertir la phrase en minuscules
+   sentc := LOWERCASE(sentc);
+
+   // Supprimer les espaces au début et à la fin
+   sentc := TRIM(sentc);
+
+   REPEAT
+       // Si un espace est rencontré, cela marque la fin d'un mot
+       IF (sentc[nbc] = " ") THEN
+           nbw := nbw + 1;
+       END_IF
+
+       // Si le caractère est une voyelle
+       IF (sentc[nbc] IN ["a", "e", "i", "o", "u", "y"]) THEN
+           nbv := nbv + 1;
+       END_IF
+
+       // Passer au caractère suivant
+       nbc := nbc + 1;
+   UNTIL (nbc = LENGTH(sentc)); // Condition d'arrêt : fin de la phrase
+
+   // Afficher les résultats
+   write("Le nombre de caractères est ", LENGTH(sentc));
+   write("Le nombre de mots est ", nbw);
+   write("Le nombre de voyelles est ", nbv);
+END
